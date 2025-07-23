@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Recipe List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 700px;
+      margin: 20px auto;
+      padding: 0 10px;
+      background: #f9f9f9;
+      color: #333;
+    }
+  
+    h1, h2 {
+      text-align: center;
+      color: #444;
+    }
+  
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 6px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+  
+    textarea {
+      resize: vertical;
+      min-height: 60px;
+    }
+  
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+  
+    button:hover {
+      background-color: #45a049;
+    }
+  
+    #recipes .recipe {
+      background: white;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin-bottom: 15px;
+      box-shadow: 0 0 6px rgba(0,0,0,0.05);
+    }
+  
+    #recipes .recipe h2 {
+      margin: 0 0 6px 0;
+      font-size: 18px;
+    }
+  
+    #recipes .recipe p {
+      margin: 6px 0;
+    }
+  
+    #recipes .recipe select,
+    #recipes .recipe input[type="text"] {
+      margin-right: 6px;
+      margin-top: 4px;
+    }
+  
+    .status {
+      font-weight: bold;
+      color: #555;
+    }
+
+    .status-btn {
+        margin-right: 6px;
+        margin-top: 6px;
+        background-color: #ddd;
+        color: #333;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: box-shadow 0.3s ease;
+    }
+
+    .status-btn.active-status {
+        color: white;
+        box-shadow: 0 0 8px 2px;
+    }
+
+    .status-btn.active-status:nth-child(1) /* Favorite */ {
+        background-color: #ff6347; 
+        box-shadow: 0 0 10px 3px #ff6347;
+    }
+
+    .status-btn.active-status:nth-child(2) /* To Try */ {
+        background-color: #1e90ff; 
+        box-shadow: 0 0 10px 3px #1e90ff;
+    }
+
+    .status-btn.active-status:nth-child(3) /* Made Before */ {
+        background-color: #32cd32; 
+        box-shadow: 0 0 10px 3px #32cd32;
+    }
+
+  
+    #recipes .recipe button {
+      margin-right: 6px;
+      margin-top: 6px;
+    }
+  
+    #user-ingredients {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  
+    #suggest-btn {
+      vertical-align: middle;
+      padding: 9px 16px;
+    }
+  </style>
+  
+</head>
+<body>
+
+  <h1>My Recipes</h1>
+
+  <input
+  type="text"
+  id="search"
+  placeholder="Search recipes by name, description, or category..."
+  style="width: 100%; padding: 8px; margin-bottom: 10px;"
+/>
+
+  <div id="recipes"></div>
+
+  <h2>Add New Recipe</h2>
+  <form id="recipe-form">
+    <input type="text" id="title" placeholder="Title" required />
+    <textarea id="description" placeholder="Description" required></textarea>
+    <button type="submit">add Recipe</button>
+  </form>
+
+  <h2>access your recipes!</h2>
+  <div style="margin-bottom: 15px;">
+    <button onclick="fetchRecipes(null)">All Recipes</button>
+    <button onclick="fetchRecipes('Favorite')">Favorites</button>
+    <button onclick="fetchRecipes('Made Before')">Made Before</button>
+    <button onclick="fetchRecipes('To Try')">To Try</button>
+  </div>
+  
+  
+  <div style="margin-bottom:20px;">
+    <label for="user-ingredients">Enter ingredients you have:</label><br/>
+    <input type="text" id="user-ingredients" placeholder="e.g. chicken, tomatoes, garlic" style="width: 80%; padding: 8px;">
+    <button id="suggest-btn">Suggest Recipe</button>
+  </div>
+  
+  <script src="script.js">  </script>
+
+</body>
+</html>
