@@ -1,6 +1,6 @@
 this website is for cooking lovers! users can add their own recipes or learn from other people's. they get to classify their favorite recipes from the recipes that are yet to be made or that have already been done.
 
-a user can delete or edit old recipes
+a user can delete or edit old recipes (inline editing)
 
 i started implementing a review feature that would allow the users to review the recipes that are posted to the web (this feature is specific to recipes that are to be posted 'publically' by the logged in user, which i did not have time to implement.)
 
